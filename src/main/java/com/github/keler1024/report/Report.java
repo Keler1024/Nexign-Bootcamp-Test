@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Report {
@@ -30,6 +31,10 @@ public class Report {
 
     public List<ReportRecord> getRecords() {
         return Collections.unmodifiableList(records);
+    }
+
+    public void sortRecords() {
+        records.sort(Comparator.comparing(ReportRecord::getStartDateTime));
     }
 
     public BigDecimal getTotalCost() {

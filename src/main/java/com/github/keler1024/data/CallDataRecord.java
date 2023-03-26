@@ -15,25 +15,13 @@ public class CallDataRecord {
                           LocalDateTime startDateTime,
                           LocalDateTime endDateTime,
                           String tariff) {
-        this.callType = callType;
-        this.phone = phone;
-        this.startDateTime = startDateTime;
-        this.endDateTime = endDateTime;
-        this.tariff = tariff;
-    }
-
-    public CallDataRecord(String callTypeCode,
-                          String phone,
-                          LocalDateTime startDateTime,
-                          LocalDateTime endDateTime,
-                          String tariff) {
-        if (callTypeCode == null || phone == null || startDateTime == null || endDateTime == null || tariff == null) {
+        if (callType == null || phone == null || startDateTime == null || endDateTime == null || tariff == null) {
             throw new NullPointerException();
         }
         if (endDateTime.isBefore(startDateTime)) {
             throw new IllegalArgumentException("Call's end time is before call's start time");
         }
-        this.callType = CallType.of(callTypeCode);
+        this.callType = callType;
         this.phone = phone;
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;

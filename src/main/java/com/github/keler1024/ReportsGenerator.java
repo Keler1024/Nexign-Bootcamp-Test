@@ -24,6 +24,8 @@ public class ReportsGenerator {
             }
             inputReader = new BufferedReader(new InputStreamReader(resourceInputStream));
         }
+
+
         try(inputReader) {
             System.out.println(inputReader.readLine());
         } catch (IOException e) {

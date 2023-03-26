@@ -1,37 +1,40 @@
-package com.github.keler1024.data;
+package com.github.keler1024.report;
 
+import com.github.keler1024.data.CallType;
+
+import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class ReportRecord {
     private final CallType callType;
-    private final String phone;
+//    private final String phone;
     private final LocalDateTime startDateTime;
     private final LocalDateTime endDateTime;
     private final Duration duration;
-    private final String tariff;
-    private final Integer cost; //В копейках
+//    private final String tariff;
+    private final BigDecimal cost;
 
     public ReportRecord(CallType callType,
-                        String phone,
+//                        String phone,
                         LocalDateTime startDateTime,
                         LocalDateTime endDateTime,
-                        String tariff,
-                        Integer cost) {
-        if (callType == null || phone == null || startDateTime == null || endDateTime == null
-                || tariff == null || cost == null) {
+//                        String tariff,
+                        BigDecimal cost) {
+        if (callType == null || /*phone == nul ||*/ startDateTime == null || endDateTime == null
+                || /*tariff == null ||*/ cost == null) {
             throw new NullPointerException();
         }
         if (endDateTime.isBefore(startDateTime)) {
             throw new IllegalArgumentException("Call's end time is before call's start time");
         }
         this.callType = callType;
-        this.phone = phone;
+//        this.phone = phone;
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
         this.duration = Duration.between(startDateTime, endDateTime);
-        this.tariff = tariff;
+//        this.tariff = tariff;
         this.cost = cost;
     }
 
@@ -39,9 +42,9 @@ public class ReportRecord {
         return callType;
     }
 
-    public String getPhone() {
-        return phone;
-    }
+//    public String getPhone() {
+//        return phone;
+//    }
 
     public LocalDateTime getStartDateTime() {
         return startDateTime;
@@ -55,11 +58,11 @@ public class ReportRecord {
         return duration;
     }
 
-    public String getTariff() {
-        return tariff;
-    }
+//    public String getTariff() {
+//        return tariff;
+//    }
 
-    public Integer getCost() {
+    public BigDecimal getCost() {
         return cost;
     }
 
@@ -69,11 +72,11 @@ public class ReportRecord {
         if (o == null || getClass() != o.getClass()) return false;
         ReportRecord that = (ReportRecord) o;
         return getCallType() == that.getCallType()
-                && getPhone().equals(that.getPhone())
+//                && getPhone().equals(that.getPhone())
                 && getStartDateTime().equals(that.getStartDateTime())
                 && getEndDateTime().equals(that.getEndDateTime())
                 && getDuration().equals(that.getDuration())
-                && getTariff().equals(that.getTariff())
+//                && getTariff().equals(that.getTariff())
                 && getCost().equals(that.getCost());
     }
 
@@ -81,11 +84,11 @@ public class ReportRecord {
     public int hashCode() {
         return Objects.hash(
                 getCallType(),
-                getPhone(),
+//                getPhone(),
                 getStartDateTime(),
                 getEndDateTime(),
                 getDuration(),
-                getTariff(),
+//                getTariff(),
                 getCost()
         );
     }

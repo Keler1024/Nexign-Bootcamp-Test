@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 public enum CallType {
-    INCOMING("01"), OUTGOING("02");
+    OUTGOING("01"), INCOMING("02");
 
     private final String code;
 
